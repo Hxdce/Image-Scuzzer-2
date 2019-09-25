@@ -21,12 +21,14 @@ namespace ImageScuzzer2
             public bool RChannelActive { get; set; }
             public bool GChannelActive { get; set; }
             public bool BChannelActive { get; set; }
+            public bool AChannelActive { get; set; }
 
             // The magnitude of potential color shifting:
             public double Magnitude = 0.25;  // 1 = 255
 
-            // Probability of a row having its pixels shifted by a random offset value:
-            public double RowOffsetChance = 0.1;  // 1 = 100%
+            // Probability of the current row/col having its pixels shifted by a random offset value:
+            public double PixelOffsetChance = 0.1;  // 1 = 100%
+            public bool OffsetHorizontal = true;
         }
 
         static public OptionsClass Options = new OptionsClass();
@@ -73,22 +75,49 @@ namespace ImageScuzzer2
                     Options.BChannelActive
                 };
                 Random rng = new Random();
-                int ROC = Convert.ToInt32(Options.RowOffsetChance * 100);
+                int ROC = Convert.ToInt32(Options.PixelOffsetChance * 100);
                 Console.WriteLine(ROC);
-                for (int y = 0; y < ImagePixelData.Height; y++) {
+                int yMax = (Options.OffsetHorizontal) ? ImagePixelData.Height : ImagePixelData.Width;
+                int xMax = (Options.OffsetHorizontal) ? ImagePixelData.Width : ImagePixelData.Height;
+                for (int y = 0; y < (yMax); y++) {
 
                     int offset = (rng.Next(1, 101) <= ROC) ? rng.Next(0, ImagePixelData.Width) : 0;
 
-                    for (int x = 0; x < ImagePixelData.Width; x++) {
-                        Color curr = ImagePixelData.GetPixel((x + offset) % ImagePixelData.Width, y);
+                    for (int x = 0; x < xMax; x++) {
+
+                        Color curr;
+                        if (Options.OffsetHorizontal) {
+                            curr = ImagePixelData.GetPixel((x + offset) % ImagePixelData.Width, y);
+                        }
+                        else {
+                            curr = ImagePixelData.GetPixel(y, (x + offset) % ImagePixelData.Height);
+                        }
+
                         int[] newColors = { 0, 0, 0 };
-                        int[] cC = { curr.R, curr.G, curr.B };                        
+                        int[] cC = { curr.R, curr.G, curr.B };
                         for (int j = 0; j < 3; j++) {
                             newColors[j] = (ActiveChannels[j]) ? (rng.Next(0, mag) + cC[j]) % 256 : cC[j];
                         }
-                        Color newPixel = Color.FromArgb(curr.A, newColors[0], newColors[1], newColors[2]);
-                        ImagePixelData.SetPixel(x, y, newPixel);
-                        
+
+                        int newTransparency = curr.A;
+                        if (Options.AChannelActive) {
+                            newTransparency = (rng.Next(-mag, mag) + curr.A);
+                            if (newTransparency > 255) {
+                                newTransparency = 255;
+                            }
+                            else if (newTransparency < 0) {
+                                newTransparency = 0;
+                            }
+                        }
+
+                        Color newPixel = Color.FromArgb(newTransparency, newColors[0], newColors[1], newColors[2]);
+                        if (Options.OffsetHorizontal) {
+                            ImagePixelData.SetPixel(x, y, newPixel);
+                        }
+                        else {
+                            ImagePixelData.SetPixel(y, x, newPixel);
+                        }
+
                     }
 
                 }

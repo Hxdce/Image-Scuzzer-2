@@ -31,16 +31,20 @@
             this.BChannelCheckbox = new System.Windows.Forms.CheckBox();
             this.MagnitudeLabel = new System.Windows.Forms.Label();
             this.MagnitudeValue = new System.Windows.Forms.NumericUpDown();
-            this.ShuffleRowChanceLabel = new System.Windows.Forms.Label();
-            this.RowOffsetChance = new System.Windows.Forms.NumericUpDown();
+            this.OffsetChanceLabel = new System.Windows.Forms.Label();
+            this.PixelOffsetChance = new System.Windows.Forms.NumericUpDown();
+            this.AlphaChannelCheckbox = new System.Windows.Forms.CheckBox();
+            this.PixelOffsetDirLabel = new System.Windows.Forms.Label();
+            this.VerticalPixelOffsetButton = new System.Windows.Forms.RadioButton();
+            this.HorizontalPixelOffsetButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.MagnitudeValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RowOffsetChance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PixelOffsetChance)).BeginInit();
             this.SuspendLayout();
             // 
             // ActiveColorChannelsLabel
             // 
-            this.ActiveColorChannelsLabel.Location = new System.Drawing.Point(33, 12);
-            this.ActiveColorChannelsLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.ActiveColorChannelsLabel.Location = new System.Drawing.Point(12, 14);
+            this.ActiveColorChannelsLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ActiveColorChannelsLabel.Name = "ActiveColorChannelsLabel";
             this.ActiveColorChannelsLabel.Size = new System.Drawing.Size(116, 13);
             this.ActiveColorChannelsLabel.TabIndex = 0;
@@ -48,7 +52,8 @@
             // 
             // RChannelCheckbox
             // 
-            this.RChannelCheckbox.Location = new System.Drawing.Point(155, 11);
+            this.RChannelCheckbox.Location = new System.Drawing.Point(134, 12);
+            this.RChannelCheckbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.RChannelCheckbox.Name = "RChannelCheckbox";
             this.RChannelCheckbox.Size = new System.Drawing.Size(34, 17);
             this.RChannelCheckbox.TabIndex = 0;
@@ -59,7 +64,8 @@
             // GChannelCheckbox
             // 
             this.GChannelCheckbox.AutoSize = true;
-            this.GChannelCheckbox.Location = new System.Drawing.Point(195, 11);
+            this.GChannelCheckbox.Location = new System.Drawing.Point(176, 12);
+            this.GChannelCheckbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.GChannelCheckbox.Name = "GChannelCheckbox";
             this.GChannelCheckbox.Size = new System.Drawing.Size(34, 17);
             this.GChannelCheckbox.TabIndex = 1;
@@ -70,7 +76,8 @@
             // BChannelCheckbox
             // 
             this.BChannelCheckbox.AutoSize = true;
-            this.BChannelCheckbox.Location = new System.Drawing.Point(235, 11);
+            this.BChannelCheckbox.Location = new System.Drawing.Point(218, 12);
+            this.BChannelCheckbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.BChannelCheckbox.Name = "BChannelCheckbox";
             this.BChannelCheckbox.Size = new System.Drawing.Size(33, 17);
             this.BChannelCheckbox.TabIndex = 2;
@@ -80,8 +87,8 @@
             // 
             // MagnitudeLabel
             // 
-            this.MagnitudeLabel.Location = new System.Drawing.Point(33, 33);
-            this.MagnitudeLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.MagnitudeLabel.Location = new System.Drawing.Point(12, 37);
+            this.MagnitudeLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MagnitudeLabel.Name = "MagnitudeLabel";
             this.MagnitudeLabel.Size = new System.Drawing.Size(66, 13);
             this.MagnitudeLabel.TabIndex = 0;
@@ -95,7 +102,8 @@
             0,
             0,
             131072});
-            this.MagnitudeValue.Location = new System.Drawing.Point(155, 31);
+            this.MagnitudeValue.Location = new System.Drawing.Point(179, 35);
+            this.MagnitudeValue.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.MagnitudeValue.Maximum = new decimal(new int[] {
             1,
             0,
@@ -112,48 +120,98 @@
             131072});
             this.MagnitudeValue.ValueChanged += new System.EventHandler(this.MagnitudeValue_ValueChanged);
             // 
-            // ShuffleRowChanceLabel
+            // OffsetChanceLabel
             // 
-            this.ShuffleRowChanceLabel.Location = new System.Drawing.Point(33, 52);
-            this.ShuffleRowChanceLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.ShuffleRowChanceLabel.Name = "ShuffleRowChanceLabel";
-            this.ShuffleRowChanceLabel.Size = new System.Drawing.Size(116, 13);
-            this.ShuffleRowChanceLabel.TabIndex = 4;
-            this.ShuffleRowChanceLabel.Text = "Row Offset Chance:";
+            this.OffsetChanceLabel.Location = new System.Drawing.Point(12, 60);
+            this.OffsetChanceLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.OffsetChanceLabel.Name = "OffsetChanceLabel";
+            this.OffsetChanceLabel.Size = new System.Drawing.Size(116, 13);
+            this.OffsetChanceLabel.TabIndex = 4;
+            this.OffsetChanceLabel.Text = "Pixel Offset Chance:";
             // 
-            // RowOffsetChance
+            // PixelOffsetChance
             // 
-            this.RowOffsetChance.DecimalPlaces = 2;
-            this.RowOffsetChance.Increment = new decimal(new int[] {
+            this.PixelOffsetChance.DecimalPlaces = 2;
+            this.PixelOffsetChance.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.RowOffsetChance.Location = new System.Drawing.Point(155, 50);
-            this.RowOffsetChance.Maximum = new decimal(new int[] {
+            this.PixelOffsetChance.Location = new System.Drawing.Point(179, 58);
+            this.PixelOffsetChance.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PixelOffsetChance.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.RowOffsetChance.Name = "RowOffsetChance";
-            this.RowOffsetChance.Size = new System.Drawing.Size(113, 20);
-            this.RowOffsetChance.TabIndex = 5;
-            this.RowOffsetChance.Tag = "";
-            this.RowOffsetChance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.RowOffsetChance.Value = new decimal(new int[] {
+            this.PixelOffsetChance.Name = "PixelOffsetChance";
+            this.PixelOffsetChance.Size = new System.Drawing.Size(113, 20);
+            this.PixelOffsetChance.TabIndex = 5;
+            this.PixelOffsetChance.Tag = "";
+            this.PixelOffsetChance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.PixelOffsetChance.Value = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.RowOffsetChance.ValueChanged += new System.EventHandler(this.RowOffsetChance_ValueChanged);
+            this.PixelOffsetChance.ValueChanged += new System.EventHandler(this.PixelOffsetChance_ValueChanged);
+            // 
+            // AlphaChannelCheckbox
+            // 
+            this.AlphaChannelCheckbox.AutoSize = true;
+            this.AlphaChannelCheckbox.Location = new System.Drawing.Point(259, 12);
+            this.AlphaChannelCheckbox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.AlphaChannelCheckbox.Name = "AlphaChannelCheckbox";
+            this.AlphaChannelCheckbox.Size = new System.Drawing.Size(33, 17);
+            this.AlphaChannelCheckbox.TabIndex = 6;
+            this.AlphaChannelCheckbox.Text = "A";
+            this.AlphaChannelCheckbox.UseVisualStyleBackColor = true;
+            this.AlphaChannelCheckbox.CheckedChanged += new System.EventHandler(this.AlphaChannelCheckbox_CheckedChanged);
+            // 
+            // PixelOffsetDirLabel
+            // 
+            this.PixelOffsetDirLabel.AutoSize = true;
+            this.PixelOffsetDirLabel.Location = new System.Drawing.Point(12, 83);
+            this.PixelOffsetDirLabel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.PixelOffsetDirLabel.Name = "PixelOffsetDirLabel";
+            this.PixelOffsetDirLabel.Size = new System.Drawing.Size(83, 13);
+            this.PixelOffsetDirLabel.TabIndex = 7;
+            this.PixelOffsetDirLabel.Text = "Offset Direction:";
+            // 
+            // VerticalPixelOffsetButton
+            // 
+            this.VerticalPixelOffsetButton.AutoSize = true;
+            this.VerticalPixelOffsetButton.Location = new System.Drawing.Point(152, 81);
+            this.VerticalPixelOffsetButton.Name = "VerticalPixelOffsetButton";
+            this.VerticalPixelOffsetButton.Size = new System.Drawing.Size(60, 17);
+            this.VerticalPixelOffsetButton.TabIndex = 8;
+            this.VerticalPixelOffsetButton.TabStop = true;
+            this.VerticalPixelOffsetButton.Text = "Vertical";
+            this.VerticalPixelOffsetButton.UseVisualStyleBackColor = true;
+            this.VerticalPixelOffsetButton.CheckedChanged += new System.EventHandler(this.VerticalPixelOffsetButton_CheckedChanged);
+            // 
+            // HorizontalPixelOffsetButton
+            // 
+            this.HorizontalPixelOffsetButton.AutoSize = true;
+            this.HorizontalPixelOffsetButton.Location = new System.Drawing.Point(218, 81);
+            this.HorizontalPixelOffsetButton.Name = "HorizontalPixelOffsetButton";
+            this.HorizontalPixelOffsetButton.Size = new System.Drawing.Size(72, 17);
+            this.HorizontalPixelOffsetButton.TabIndex = 9;
+            this.HorizontalPixelOffsetButton.TabStop = true;
+            this.HorizontalPixelOffsetButton.Text = "Horizontal";
+            this.HorizontalPixelOffsetButton.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 381);
-            this.Controls.Add(this.RowOffsetChance);
-            this.Controls.Add(this.ShuffleRowChanceLabel);
+            this.ClientSize = new System.Drawing.Size(304, 403);
+            this.Controls.Add(this.HorizontalPixelOffsetButton);
+            this.Controls.Add(this.VerticalPixelOffsetButton);
+            this.Controls.Add(this.PixelOffsetDirLabel);
+            this.Controls.Add(this.AlphaChannelCheckbox);
+            this.Controls.Add(this.PixelOffsetChance);
+            this.Controls.Add(this.OffsetChanceLabel);
             this.Controls.Add(this.MagnitudeValue);
             this.Controls.Add(this.MagnitudeLabel);
             this.Controls.Add(this.BChannelCheckbox);
@@ -164,8 +222,9 @@
             this.MaximizeBox = false;
             this.Name = "Form2";
             this.Text = "Options";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MagnitudeValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RowOffsetChance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PixelOffsetChance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,7 +238,11 @@
         private System.Windows.Forms.CheckBox BChannelCheckbox;
         private System.Windows.Forms.Label MagnitudeLabel;
         private System.Windows.Forms.NumericUpDown MagnitudeValue;
-        private System.Windows.Forms.Label ShuffleRowChanceLabel;
-        private System.Windows.Forms.NumericUpDown RowOffsetChance;
+        private System.Windows.Forms.Label OffsetChanceLabel;
+        private System.Windows.Forms.NumericUpDown PixelOffsetChance;
+        private System.Windows.Forms.CheckBox AlphaChannelCheckbox;
+        private System.Windows.Forms.Label PixelOffsetDirLabel;
+        private System.Windows.Forms.RadioButton VerticalPixelOffsetButton;
+        private System.Windows.Forms.RadioButton HorizontalPixelOffsetButton;
     }
 }

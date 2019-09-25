@@ -16,6 +16,16 @@ namespace ImageScuzzer2
             InitializeComponent();
         }
 
+        private void Form2_Load(object sender, EventArgs e) {
+            RChannelCheckbox.Checked = Form1.Options.RChannelActive;
+            GChannelCheckbox.Checked = Form1.Options.GChannelActive;
+            BChannelCheckbox.Checked = Form1.Options.BChannelActive;
+            AlphaChannelCheckbox.Checked = Form1.Options.AChannelActive;
+            MagnitudeValue.Value = Convert.ToDecimal(Form1.Options.Magnitude);
+            PixelOffsetChance.Value = Convert.ToDecimal(Form1.Options.PixelOffsetChance);
+            VerticalPixelOffsetButton.Checked = Form1.Options.OffsetHorizontal;
+        }
+
         private void RChannelCheckbox_CheckedChanged(object sender, EventArgs e) {
             Form1.Options.RChannelActive = RChannelCheckbox.Checked;
         }
@@ -28,12 +38,20 @@ namespace ImageScuzzer2
             Form1.Options.BChannelActive = BChannelCheckbox.Checked;
         }
 
+        private void AlphaChannelCheckbox_CheckedChanged(object sender, EventArgs e) {
+            Form1.Options.AChannelActive = AlphaChannelCheckbox.Checked;
+        }
+
         private void MagnitudeValue_ValueChanged(object sender, EventArgs e) {
             Form1.Options.Magnitude = Convert.ToDouble(MagnitudeValue.Value);
         }
 
-        private void RowOffsetChance_ValueChanged(object sender, EventArgs e) {
-            Form1.Options.RowOffsetChance = Convert.ToDouble(RowOffsetChance.Value);
+        private void PixelOffsetChance_ValueChanged(object sender, EventArgs e) {
+            Form1.Options.PixelOffsetChance = Convert.ToDouble(PixelOffsetChance.Value);
+        }
+
+        private void VerticalPixelOffsetButton_CheckedChanged(object sender, EventArgs e) {
+            Form1.Options.OffsetHorizontal = !VerticalPixelOffsetButton.Checked;
         }
     }
 }
