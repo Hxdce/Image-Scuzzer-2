@@ -24,6 +24,7 @@ namespace ImageScuzzer2
             MagnitudeValue.Value = Convert.ToDecimal(Form1.Options.Magnitude);
             PixelOffsetChance.Value = Convert.ToDecimal(Form1.Options.PixelOffsetChance);
             VerticalPixelOffsetButton.Checked = Form1.Options.OffsetHorizontal;
+            PixelOffsetMagnitude.Value = Convert.ToDecimal(Form1.Options.PixelOffsetMagnitude);
         }
 
         private void RChannelCheckbox_CheckedChanged(object sender, EventArgs e) {
@@ -52,6 +53,10 @@ namespace ImageScuzzer2
 
         private void VerticalPixelOffsetButton_CheckedChanged(object sender, EventArgs e) {
             Form1.Options.OffsetHorizontal = !VerticalPixelOffsetButton.Checked;
+        }
+
+        private void PixelOffsetMagnitude_ValueChanged(object sender, EventArgs e) {
+            Form1.Options.PixelOffsetMagnitude = Convert.ToDouble(PixelOffsetMagnitude.Value);
         }
     }
 }

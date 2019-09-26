@@ -29,6 +29,8 @@ namespace ImageScuzzer2
             // Probability of the current row/col having its pixels shifted by a random offset value:
             public double PixelOffsetChance = 0.1;  // 1 = 100%
             public bool OffsetHorizontal = true;
+            // Magnitude of that offset value:
+            public double PixelOffsetMagnitude = 0.25;  // 1 = entire width of the image
         }
 
         static public OptionsClass Options = new OptionsClass();
@@ -68,7 +70,10 @@ namespace ImageScuzzer2
 
         public void GlitchImage(Image i) {
             using (Bitmap ImagePixelData = new Bitmap(i)) {
+
                 int mag = Convert.ToInt32(Options.Magnitude * 255);
+                double OffsetMag = Options.PixelOffsetMagnitude;
+
                 bool[] ActiveChannels = {
                     Options.RChannelActive,
                     Options.GChannelActive,
@@ -81,7 +86,7 @@ namespace ImageScuzzer2
                 int xMax = (Options.OffsetHorizontal) ? ImagePixelData.Width : ImagePixelData.Height;
                 for (int y = 0; y < (yMax); y++) {
 
-                    int offset = (rng.Next(1, 101) <= ROC) ? rng.Next(0, ImagePixelData.Width) : 0;
+                    int offset = (rng.Next(1, 101) <= ROC) ? rng.Next(0, Convert.ToInt32(OffsetMag * ImagePixelData.Width)) : 0;
 
                     for (int x = 0; x < xMax; x++) {
 
