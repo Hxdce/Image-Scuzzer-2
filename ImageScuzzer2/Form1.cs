@@ -309,7 +309,12 @@ namespace ImageScuzzer2 {
 
         private void SaveButton_Click(object sender, EventArgs e) {
             Directory.CreateDirectory("output");
-            AppPictureBox.Image.Save("output/test.png");
+            AppPictureBox.Image.Save("output/glitched.png");
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {
+            string MessageBoxText = "Image Scuzzer 2 - 0.1 Alpha\n\nCopyright © 2019\nLicensed under the MIT license\nCreated by Hxdce";
+            MessageBox.Show(MessageBoxText, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
