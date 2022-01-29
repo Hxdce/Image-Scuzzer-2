@@ -1,5 +1,5 @@
 # Image-Scuzzer-2
-A powerful, versatile application for glitching/databending images. Has numerous options.
+An application for glitching/databending images.
 
 Created by Hxdce.
 ## Basic Build Instructions
